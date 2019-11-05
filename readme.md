@@ -6,9 +6,6 @@
 - heroku config:set LOGZ_URL=<insert url>
 - heroku config:set LOGZ_TOKEN=<token>
 
-Infrastructor: 
-- https://github.com/unknown54321/infra
-
 Default prefix on controller
 - /devices
 
@@ -19,3 +16,6 @@ the application.
 
 - The measurements did not go as planned, so there are only measurements values. However 
 none are in practical used case sceneario. 
+
+Infrastructor: 
+- https://github.com/unknown54321/infra
