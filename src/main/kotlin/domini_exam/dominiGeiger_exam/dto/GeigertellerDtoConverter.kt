@@ -1,6 +1,6 @@
-package domini_exam.dominiGeiger_exam
+package domini_exam.dominiGeiger_exam.dto
 
-import domini_exam.dominiGeiger_exam.dto.GeigertellerDto
+import domini_exam.dominiGeiger_exam.db.Geigerteller
 
 object DtoConverter {
 

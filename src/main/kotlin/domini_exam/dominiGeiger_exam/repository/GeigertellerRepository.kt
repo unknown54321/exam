@@ -1,6 +1,6 @@
 package domini_exam.dominiGeiger_exam
 
-import domini_exam.dominiGeiger_exam.Geigerteller
+import domini_exam.dominiGeiger_exam.db.Geigerteller
 import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository
 

@@ -1,11 +1,8 @@
-package domini_exam.dominiGeiger_exam
+package domini_exam.dominiGeiger_exam.db
 
 import com.fasterxml.jackson.annotation.JsonBackReference
-import org.springframework.data.annotation.CreatedDate
-import java.util.*
+import domini_exam.dominiGeiger_exam.db.Geigerteller
 import javax.persistence.*
-import javax.validation.constraints.NotBlank
-import javax.validation.constraints.Size
 
 @Entity
 data class GeigetellerMeasurement (
