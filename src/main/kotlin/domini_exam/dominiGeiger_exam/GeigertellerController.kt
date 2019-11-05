@@ -39,12 +39,11 @@ class GeigertellerController(
 
     // Get all the devices
     @GetMapping
-  //  fun all(): MutableIterable<Geigerteller> = this.geigerRepository.findAll()
     fun getAll(
 
     ): ResponseEntity<WrappedResponse<MutableIterable<Geigerteller>>> {
+
         val devices = geigerRepository.findAll()
-        logger.debug("Task has been running ")
 
         logger.info("These are the devices that has returned {} ", devices.count())
         return RestResponseFactory.payload(200, devices)
@@ -66,7 +65,7 @@ class GeigertellerController(
 
     val deviceName = geigerRepository.findById(deviceId).orElse(null)
             ?: return RestResponseFactory.notFound("Geigerteller with $deviceId does not exist")
-
+        logger.info("Device has been found")
         return RestResponseFactory.payload(200, DtoConverter.transform(deviceName))
 
     }

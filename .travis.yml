@@ -2,5 +2,8 @@ language: java
 deploy:
   provider: heroku
   app: heroku-run
+  install:
+  script:
+    - "./build.sh"
   api_key:
     secure: mu0jdkVBFRrMjkLBPvrlZuinrkT2jD0pF17JmdfJ0l0r4FXx2R704zkk+421u9GJvE2gCUa8cL2/t8EGXglIqh3rA3qMmtc+zLZxtoya6hsB13wiBEks4N+U9A8KgHFkG3TGdtEtaJuauUtdsUjnalvFmpLbxltU3RASyzxBiRE4ETCESHU1PZlRPj+hKDID1XKO//TVuumczBqHgO4KjkO1Xes4QSyhoma5oQwe1FEWlnKz/iFfZYbMUIBFu30rWslkgrBZjiSm6LUqMH7YepO5CU0HcgXMH/UF9b9livT53WxXH8N23D0JcUFOk1jFzuNezaQu24nArKGiC1ZmK24B9Zs8eebRZrDfBzUzFgGE51xbNzWN2NgJesSWgb1GlS+OWcZ6iNLmZ3CcD/QqorYn2VViV1e4R4Z6XnGULa6w9dJQCEZ8cr4Ckj9CSdTpQ5Tp0+BllUo8K0yIte+gAIDry1YY8rs+hxfPu0b5qFJ4XTE2zgPaZXlxF70f+L0FdHJw3rrRlOZ3F5YLSA6kK9x11wUZnnzUEeFCijPjW4QxRpP/+VCjgy/kg+P6edvJpKDXi6KC4DZ78kXUf2Hf9v6M4C5GIWieCnZhRohWBcPEktQidUlnWO2ZyC9zPvpS9qeRyzTTrHxCoGBu9v8pyosnDIW9sJK3IihBxJ+aeJc=
