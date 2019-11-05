@@ -2,9 +2,9 @@
 
 
 **<h3>Input variables</h3>**
-travis encrypt $(heroku auth:token) --add deploy.api_key
-heroku config:set LOGZ_URL=<insert url>
-heroku config:set LOGZ_TOKEN=<token>
+- travis encrypt $(heroku auth:token) --add deploy.api_key
+- heroku config:set LOGZ_URL=<insert url>
+- heroku config:set LOGZ_TOKEN=<token>
 
 Infrastructor: 
 https://github.com/unknown54321/infra
