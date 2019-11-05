@@ -7,11 +7,10 @@
 - heroku config:set LOGZ_TOKEN=<token>
 
 Infrastructor: 
-https://github.com/unknown54321/infra
+- https://github.com/unknown54321/infra
 
 Default prefix on controller
 - /devices
-
 
 
 Some missing requirements: 
