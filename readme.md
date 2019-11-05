@@ -1,17 +1,14 @@
+<h1>DominiGeiger Application<h1>
 
 
+**<h3>Input variables</h3>**
 
-**<h3>Docker</h3>** 
+heroku config:set LOGZ_URL=<insert url>
+heroku config:set LOGZ_TOKEN=<token>
 
-docker login 
+Infrastructor: 
+https://github.com/unknown54321/infra
 
-docker build . --tag pgr301 --build-arg JAR_FILE=./target/dominiGeiger_exam-0.0.1-SNAPSHOT.jar
-
-docker run <tag>/<repo>
-
-Push to docker hub
-
-
-docker tag <tag> <username>/<tag_remote>
-
-docker push <username>/<tag_remote>
+Some missing requirements: 
+- I was not able to do add unittesting in time, since i prioritized adding the necessary features to
+the application
