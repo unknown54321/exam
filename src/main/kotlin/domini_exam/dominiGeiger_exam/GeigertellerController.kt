@@ -1,11 +1,12 @@
 package domini_exam.dominiGeiger_exam
 
+import domini_exam.dominiGeiger_exam.db.Geigerteller
+import domini_exam.dominiGeiger_exam.dto.GeigertellerDtoConverter
 import domini_exam.dominiGeiger_exam.dto.GeigertellerDto
-import domini_exam.dominiGeiger_exam.dto.RestResponseFactory
-import domini_exam.dominiGeiger_exam.dto.WrappedResponse
+import domini_exam.dominiGeiger_exam.dto.common.RestResponseFactory
+import domini_exam.dominiGeiger_exam.dto.common.WrappedResponse
+import domini_exam.dominiGeiger_exam.repository.GeigertellerRepository
 import io.micrometer.core.annotation.Timed
-import io.micrometer.core.instrument.Counter
-import io.micrometer.core.instrument.DistributionSummary
 import io.micrometer.core.instrument.MeterRegistry
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
@@ -24,17 +25,6 @@ class GeigertellerController(
 ) {
 
     private val logger = LoggerFactory.getLogger(GeigertellerController::class.java)
-    private val counterCreated = Counter.builder("counter.created")
-            .description("Measurements has been created")
-    private val counterHasNotBeenFound = Counter.builder("counter.NotBeenfound")
-            .description("Measurements data is invalid")
-    private val sievertDSummary = DistributionSummary
-            .builder("distribution.sievert")
-            .description("Distribution of Sievert")
-            .baseUnit("sievert")
-            // percentile values in the app, median and 95th percentiles
-            .publishPercentiles(0.5, 0.95)
-            .register(meterRegistry)
 
 
     // Get all the devices
@@ -49,7 +39,7 @@ class GeigertellerController(
         return RestResponseFactory.payload(200, devices)
     }
 
-    //Find the spesific id of the device
+    //Find the specific id of the device
     @GetMapping(path = ["/{deviceId}"])
     fun getByDeviceId(
             @PathVariable("deviceId")
@@ -66,12 +56,12 @@ class GeigertellerController(
     val deviceName = geigerRepository.findById(deviceId).orElse(null)
             ?: return RestResponseFactory.notFound("Geigerteller with $deviceId does not exist")
         logger.info("Device has been found")
-        return RestResponseFactory.payload(200, DtoConverter.transform(deviceName))
+        return RestResponseFactory.payload(200, GeigertellerDtoConverter.transform(deviceName))
 
     }
 
 
-
+    // create a device
     @PostMapping(consumes = [MediaType.APPLICATION_JSON_VALUE])
     @Timed
     fun createDevice(
@@ -85,6 +75,7 @@ class GeigertellerController(
         return ResponseEntity.ok(device)
     }
 
+    //delete a device
     @DeleteMapping(path = ["/{deviceId}"])
     fun deleteDeviceById(
             @PathVariable("deviceId")
@@ -103,18 +94,11 @@ class GeigertellerController(
         }
 
         geigerRepository.deleteById(id)
-        logger.info("Device $id has been deleted", counterCreated)
+        logger.info("Device $id has been deleted")
 
         return RestResponseFactory.noPayload(204)
     }
 
-    /*
-    @PostMapping("/{deviceId}/measurements")
-    @Timed
-    fun createMeasurements(
-            @PathVariable("device")
-    )
-*/
 
 
 }

@@ -1,10 +1,10 @@
-package domini_exam.dominiGeiger_exam
+package domini_exam.dominiGeiger_exam.db
 
 import com.fasterxml.jackson.annotation.JsonManagedReference
-import org.springframework.data.annotation.CreatedDate
 import javax.persistence.*
 
 @Entity
+@Table(name = "Geigerteller")
 data class Geigerteller (
 
 

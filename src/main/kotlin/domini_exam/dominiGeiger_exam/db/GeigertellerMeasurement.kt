@@ -3,6 +3,7 @@ package domini_exam.dominiGeiger_exam.db
 import com.fasterxml.jackson.annotation.JsonBackReference
 import domini_exam.dominiGeiger_exam.db.Geigerteller
 import javax.persistence.*
+import javax.validation.constraints.NotNull
 
 @Entity
 data class GeigetellerMeasurement (
@@ -19,5 +20,6 @@ data class GeigetellerMeasurement (
         @Id
         @GeneratedValue
         var deviceId: Long? = null
+
 
 )

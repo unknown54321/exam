@@ -1,4 +1,4 @@
-package domini_exam.dominiGeiger_exam.dto
+package domini_exam.dominiGeiger_exam.dto.common
 
 
 open class WrappedResponse<T>(
@@ -16,7 +16,7 @@ open class WrappedResponse<T>(
         var status: ResponseStatus? = null
 ) {
 
-    fun validated() : WrappedResponse<T>{
+    fun validated() : WrappedResponse<T> {
 
         val c : Int = code ?: throw IllegalStateException("Missing HTTP code")
 
@@ -32,9 +32,9 @@ open class WrappedResponse<T>(
                 else -> throw  IllegalStateException("Invalid HTTP code: $code")
             }
         } else {
-            val wrongSuccess =  (status ==  ResponseStatus.SUCCESS && c !in 100..399)
-            val wrongError =  (status ==  ResponseStatus.ERROR && c !in 400..499)
-            val wrongFail =  (status ==  ResponseStatus.FAIL && c !in 500..599)
+            val wrongSuccess =  (status == ResponseStatus.SUCCESS && c !in 100..399)
+            val wrongError =  (status == ResponseStatus.ERROR && c !in 400..499)
+            val wrongFail =  (status == ResponseStatus.FAIL && c !in 500..599)
 
             val wrong = wrongSuccess || wrongError || wrongFail
             if(wrong){

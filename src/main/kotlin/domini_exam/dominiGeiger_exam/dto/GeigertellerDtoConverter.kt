@@ -2,7 +2,7 @@ package domini_exam.dominiGeiger_exam.dto
 
 import domini_exam.dominiGeiger_exam.db.Geigerteller
 
-object DtoConverter {
+object GeigertellerDtoConverter {
 
    fun transform(geigerteller: Geigerteller) : GeigertellerDto {
 

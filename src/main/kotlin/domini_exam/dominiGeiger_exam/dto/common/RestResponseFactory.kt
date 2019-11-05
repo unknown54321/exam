@@ -1,4 +1,4 @@
-package domini_exam.dominiGeiger_exam.dto
+package domini_exam.dominiGeiger_exam.dto.common
 
 import org.springframework.http.ResponseEntity
 import java.net.URI
